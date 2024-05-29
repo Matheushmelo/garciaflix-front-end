@@ -1,5 +1,5 @@
 import Head from "next/head";
-import styles from "./HomeNoAuth.module.scss"
+import styles from "./styles/HomeNoAuth.module.scss"
 
 const HomeNoAuth = () => {
   return (

@@ -34,12 +34,15 @@ main {
     margin: 0;
   }
 }
+
 ::-webkit-scrollbar {
   width: 8px;
 }
+
 ::-webkit-scrollbar-track {
   background: #151515;
 }
+
 ::-webkit-scrollbar-thumb {
   background: #868686;
   border-radius: 40px;
