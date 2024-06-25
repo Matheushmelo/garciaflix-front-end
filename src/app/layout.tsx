@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: "Garciaflix",
   description: "Tenha acesso aos melhores cursos de programação com a melhor metodologia do mercado!",
   icons: {
-    icon: '/favicon.svg'
+    icon: '/favicon.png'
   }
 };
 

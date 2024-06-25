@@ -3,8 +3,12 @@ import styles from "../styles/HomeNoAuth.module.scss"
 import HeaderNoAuth from "@/components/homeNoAuth/headerNoAuth";
 import PresentationSection from "@/components/homeNoAuth/presentationSection";
 import CardsSection from "@/components/homeNoAuth/cardsSection";
+import SlideSection from "@/components/homeNoAuth/slideSection";
+import getNewestCourses, {CourseType} from "@/services/courseService";
 
-const HomeNoAuth = () => {
+export default async function HomeNoAuth() {
+  const courses: CourseType[] = await getNewestCourses();
+
   return (
     <>
       <Head>
@@ -15,10 +19,9 @@ const HomeNoAuth = () => {
           <HeaderNoAuth />
           <PresentationSection />
         </div>
-        <CardsSection></CardsSection>
+        <CardsSection />
+        <SlideSection newestCourses={courses}/>
        </main>
     </>
   )
 }
-
-export default HomeNoAuth

@@ -20,7 +20,7 @@ const HeaderNoAuth = () => {
         />
       </div>
       <Container className={styles.nav}>
-        <img src="/logoOnebitflix.svg" alt="logoOneBitFlix" className={styles.imgLogoNav}/>
+        <img src="/logoGarciaflix.png" alt="logoGarciaflix" className={styles.imgLogoNav}/>
         <div>
           <Link href="/login">
             <Button className={styles.navBtn} outline>
