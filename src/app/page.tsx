@@ -5,6 +5,7 @@ import PresentationSection from "@/components/homeNoAuth/presentationSection";
 import CardsSection from "@/components/homeNoAuth/cardsSection";
 import SlideSection from "@/components/homeNoAuth/slideSection";
 import getNewestCourses, {CourseType} from "@/services/courseService";
+import Footer from "@/components/common/footer";
 
 export default async function HomeNoAuth() {
   const courses: CourseType[] = await getNewestCourses();
@@ -21,6 +22,7 @@ export default async function HomeNoAuth() {
         </div>
         <CardsSection />
         <SlideSection newestCourses={courses}/>
+        <Footer />
        </main>
     </>
   )
