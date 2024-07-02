@@ -27,7 +27,7 @@ const HeaderNoAuth = () => {
               Entrar
             </Button>
           </Link>
-          <Link href="/registro">
+          <Link href="/register">
             <Button className={styles.navBtn} outline>
               Quero fazer parte
             </Button>
