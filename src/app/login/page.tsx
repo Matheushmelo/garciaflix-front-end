@@ -18,6 +18,12 @@ const Login = function() {
   const [toastMessage, setToastMessage] = useState("")
 
   useEffect(() => {
+    if(sessionStorage.getItem("garciaflix-token")) {
+      router.push("/home")
+    }
+  }, [])
+
+  useEffect(() => {
     const registerSucess = searchParams.get('registred')
 
     if(registerSucess === "true") {
