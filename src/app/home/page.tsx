@@ -1,6 +1,6 @@
 'use client'
 
-import HeaderAuth from "@/components/common/headerAuth"
+import FeaturedSection from "@/components/homeAuth/featuredSection"
 import Head from "next/head"
 
 const Home = function() {
@@ -11,7 +11,7 @@ const Home = function() {
         <link rel="shortcut icon" href="/favicon.png" type="image/x-icon" />
       </Head>
       <main>
-        <HeaderAuth />
+        <FeaturedSection />
       </main>
     </>
   )

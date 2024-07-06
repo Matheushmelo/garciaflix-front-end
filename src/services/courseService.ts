@@ -17,7 +17,8 @@ export type CourseType = {
   episodes?: EpisodeType[];
 }
 
-async function getNewestCourses() {
+const courseService = {
+  getNewestCourses: async() => {
     const res = await api.get("/courses/newest").catch((error) => {
       console.log(error.response.data.message)
 
@@ -25,7 +26,22 @@ async function getNewestCourses() {
     })
 
     return res.data
+  },
+  getFeaturedCourses: async() => {
+    const token = sessionStorage.getItem("garciaflix-token")
+
+    const res = await api.get("/courses/featured", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }).catch((error) => {
+      console.log(error.response.data.message)
+
+      return error.response
+    })
+
+    return res
+  }
 }
 
-
-export default getNewestCourses
+export default courseService

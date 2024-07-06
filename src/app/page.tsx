@@ -4,12 +4,12 @@ import HeaderNoAuth from "@/components/homeNoAuth/headerNoAuth";
 import PresentationSection from "@/components/homeNoAuth/presentationSection";
 import CardsSection from "@/components/homeNoAuth/cardsSection";
 import SlideSection from "@/components/homeNoAuth/slideSection";
-import getNewestCourses, {CourseType} from "@/services/courseService";
+import courseService, {CourseType} from "@/services/courseService";
 import Footer from "@/components/common/footer";
 import AOSinit from "@/components/homeNoAuth/aosInit";
 
 export default async function HomeNoAuth() {
-  const courses: CourseType[] = await getNewestCourses();
+  const courses: CourseType[] = await courseService.getNewestCourses();
 
   return (
     <>
