@@ -1,5 +1,6 @@
 'use client'
 
+import FavoriteCategory from "@/components/homeAuth/favoriteCategory"
 import FeaturedSection from "@/components/homeAuth/featuredSection"
 import NewestCategory from "@/components/homeAuth/newestCategory"
 import Head from "next/head"
@@ -14,6 +15,7 @@ const Home = function() {
       <main>
         <FeaturedSection />
         <NewestCategory />
+        <FavoriteCategory />
       </main>
     </>
   )
