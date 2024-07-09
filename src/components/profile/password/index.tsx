@@ -124,6 +124,8 @@ const PasswordForm = function() {
               className={styles.inputFlex}
             />
           </FormGroup>
+        </div>
+        <div className={styles.divBtn}>
           <Button type="submit" outline className={styles.formBtn}>Salvar alterações</Button>
         </div>
       </Form>
