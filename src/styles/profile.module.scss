@@ -36,6 +36,7 @@
 .userName {
   font-size: 30px;
   font-weight: bold;
+  word-break: break-all;
 }
 
 .memberTime {
@@ -71,6 +72,7 @@
   text-transform: uppercase;
   border: 1px solid $darkGray;
   color: white;
+  transition: 0.3s;
   &::placeholder {
     color: $lightGray;
   }
@@ -104,6 +106,7 @@
   font-weight: bold;
   font-size: 15px;
   padding: 6px 20px;
+  transition: 0.4s;
   &:hover {
     border-color: $darkRed;
     background-color: transparent;
@@ -114,20 +117,21 @@
 .title {
   font-size: 45px;
   font-weight: bold;
-  padding-bottom: 50px;
+  padding: 0px 0px 50px 0px;
 }
 
 .renderForm {
   display: block;
   width: 200px;
   border: 1px solid $darkGray;
+  color: white;
   background-color: transparent;
   font-weight: bold;
   margin: 0 auto;
   padding: 14px 0px;
   &:hover {
     background-color: transparent;
-    border-color: $lightRed;
+    color: $lightRed;
     color: $lightGray;
   }
 }
@@ -149,31 +153,38 @@
 
 @media (max-width: 767px) {
   .inputFlexDiv {
-    gap: 20px;
+    gap: 30px;
   }
-
   .inputFlex {
+    width: 400px;
+  }
+  .input {
     width: 400px;
   }
 }
 
-@media (max-width: 460px) {
+@media (max-width: 527px) {
   .title {
-    font-size: 30px;
-    margin-bottom: 10px;
+    font-size: 35px;
   }
-
+  .formName {
+    width: 95%;
+  }
   .nameAbbreviation {
     font-size: 30px;
-    min-height: 60px;
     min-width: 60px;
+    min-height: 60px;
   }
-
   .userName {
-    font-size: 25px;
+    font-size: 30px;
   }
-  
+}
+
+@media (max-width: 435px) {
   .inputFlex {
+    width: 100%;
+  }
+  .input {
     width: 100%;
   }
 }
