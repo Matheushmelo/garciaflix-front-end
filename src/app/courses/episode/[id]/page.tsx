@@ -3,7 +3,7 @@
 import Head from "next/head"
 import styles from "../../../../styles/episodePlayer.module.scss"
 import HeaderGeneric from "@/components/common/headerGeneric"
-import { useSearchParams } from "next/navigation"
+import { useRouter, useSearchParams } from "next/navigation"
 import { useEffect, useState } from "react"
 import courseService, { CourseType } from "@/services/courseService"
 import PageSpinner from "@/components/common/spinner"
@@ -16,6 +16,7 @@ interface Props {
 
 const EpisodePlayer = function({params}: Props) {
   const searchParams = useSearchParams()
+  const router = useRouter()
 
   const [course, setCourse] = useState<CourseType>()
 
@@ -35,6 +36,14 @@ const EpisodePlayer = function({params}: Props) {
       }
       setCourse(res.data)
     }
+  }
+
+  const handleLastEpisode = () => {
+    router.push(`/courses/episode/${episodeOrder - 1}?courseid=${course?.id}`)
+  }
+
+  const handleNextEpisode = () => {
+    router.push(`/courses/episode/${episodeOrder + 1}?courseid=${course?.id}`)
   }
 
   useEffect(() => {
@@ -64,14 +73,25 @@ const EpisodePlayer = function({params}: Props) {
               controls
             />
           )}
-          <div className={styles.episodeButton}>
-            <Button className={styles.episodeButton}>
+          <div className={styles.episodeButtonDiv}>
+            <Button 
+              className={styles.episodeButton} 
+              disabled={episodeOrder === 0 ? true : false}
+              onClick={handleLastEpisode}
+            >
               <img src="/episode/iconArrowLeft.svg" alt="arrowLeft" className={styles.arrowImg}/>
             </Button>
-            <Button className={styles.episodeButton}>
+            <Button 
+              className={styles.episodeButton} 
+              disabled={episodeOrder + 1 === course.episodes.length ? true : false}
+              onClick={handleNextEpisode}
+              >
               <img src="/episode/iconArrowRight.svg" alt="arrowright" className={styles.arrowImg}/>
             </Button>
           </div>
+          <p className="text-center py-4">
+            {course.episodes[episodeOrder].synopsis}
+          </p>
         </Container>
       </main>
     </>
