@@ -3,17 +3,20 @@
 import Head from "next/head"
 import styles from "../../styles/search.module.scss"
 import HeaderAuth from "@/components/common/headerAuth"
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import courseService, { CourseType } from "@/services/courseService";
 import { Container } from "reactstrap";
 import SearchCard from "@/components/searchCard";
 import Footer from "@/components/common/footer";
+import PageSpinner from "@/components/common/spinner";
 
 const Search = function() {
+  const router = useRouter()
   const searchParams = useSearchParams()
   const searchName = searchParams.get('name')
   const [searchResult, setSearchResult] = useState<CourseType[]>([])
+  const [loading, setLoading] = useState(true)
 
   const searchCourses = async function() {
     if(searchName && typeof searchName === "string") {
@@ -26,6 +29,16 @@ const Search = function() {
   useEffect(() => {
     searchCourses()
   }, [searchName])
+
+  useEffect(() => {
+    if(!sessionStorage.getItem("garciaflix-token")) {
+      router.push("/login")
+    } else {
+      setLoading(false)
+    }
+  }, [])
+
+  if(loading) return <PageSpinner />
 
   return(
     <>

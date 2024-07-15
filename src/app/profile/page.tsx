@@ -6,11 +6,25 @@ import UserForm from "@/components/profile/user"
 import HeaderAuth from "@/components/common/headerAuth"
 import { Button, Col, Container, Row } from "reactstrap"
 import Footer from "@/components/common/footer"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import PasswordForm from "@/components/profile/password"
+import { useRouter } from "next/navigation"
+import PageSpinner from "@/components/common/spinner"
 
 const UserInfo = function() {
   const [form, setForm] = useState("userForm")
+  const router = useRouter()
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    if(!sessionStorage.getItem("garciaflix-token")) {
+      router.push("/login")
+    } else {
+      setLoading(false)
+    }
+  }, [])
+
+  if(loading) return <PageSpinner />
 
   return (
     <>

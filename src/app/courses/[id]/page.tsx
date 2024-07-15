@@ -10,15 +10,26 @@ import { Button, Container } from "reactstrap";
 import PageSpinner from "@/components/common/spinner";
 import EpisodeList from "@/components/episodeList";
 import Footer from "@/components/common/footer";
+import { useRouter } from "next/navigation";
 
 interface Props {
   params: {id: string}
 }
 
 const CoursePage = function({params}: Props) {
+  const router = useRouter()
+  const [loading, setLoading] = useState(true)
   const [course, setCourse] = useState<CourseType>()
   const [liked, setLiked] = useState(false)
   const [favorited, setFavorited] = useState(false)
+
+  useEffect(() => {
+    if(!sessionStorage.getItem("garciaflix-token")) {
+      router.push("/login")
+    } else {
+      setLoading(false)
+    }
+  }, [])
 
   const getCourse = async function() {
     if (typeof params.id !== "string") return
@@ -63,6 +74,8 @@ const CoursePage = function({params}: Props) {
   }
 
   if(course === undefined) return <PageSpinner />
+
+  if(loading) return <PageSpinner />
 
   return (
     <>

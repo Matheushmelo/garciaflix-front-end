@@ -18,7 +18,8 @@ interface Props {
 const EpisodePlayer = function({params}: Props) {
   const searchParams = useSearchParams()
   const router = useRouter()
-
+  
+  const [loading, setLoading] = useState(true)
   const [course, setCourse] = useState<CourseType>()
   const [getEpisodeTime, setGetEpisodeTime] = useState(0)
   const [episodeTime, setEpisodeTime] = useState(0)
@@ -29,6 +30,14 @@ const EpisodePlayer = function({params}: Props) {
   const episodeId = parseFloat(searchParams.get('episodeid')?.toString() || "")
 
   const playerRef = useRef<ReactPlayer>(null)
+
+  useEffect(() => {
+    if(!sessionStorage.getItem("garciaflix-token")) {
+      router.push("/login")
+    } else {
+      setLoading(false)
+    }
+  }, [])
 
   const handleGetEpisodeTime = async() => {
     const res = await watchEpidoseService.getWatchTime(episodeId)
@@ -104,6 +113,8 @@ const EpisodePlayer = function({params}: Props) {
   }
 
   const videoUrl = `${process.env.NEXT_PUBLIC_BASEURL}/episodes/stream?videoUrl=${course.episodes[episodeOrder].videoUrl}&token=${sessionStorage.getItem("garciaflix-token")}`
+
+  if(loading) return <PageSpinner />
 
   return (
     <>
