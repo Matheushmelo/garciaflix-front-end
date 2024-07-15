@@ -139,6 +139,3 @@ const CoursePage = function({params}: Props) {
 }
 
 export default CoursePage
-
-
-
