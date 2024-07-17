@@ -51,7 +51,7 @@ const HeaderAuth = function() {
   return (
     <>
       <Container className={styles.nav}>
-        <Link href="/home">
+        <Link href="/home" className="text-decoration-none">
           <img src="/logoGarciaflix.png" alt="logoGarciaflix" className={styles.imgLogoNav}/>
         </Link>
         <div className="d-flex align-items-center">
@@ -84,7 +84,7 @@ const HeaderAuth = function() {
           className={styles.modal}
           overlayClassName={styles.overlayModal}
         >
-          <Link href="/profile">
+          <Link href="/profile" className="text-decoration-none">
             <p className={styles.modalLink}>Meus Dados</p>
           </Link>
           <p className={styles.modalLink} onClick={handleLogout}>Sair</p>
