@@ -4,6 +4,7 @@ import { FormEvent, useEffect, useState } from "react"
 import profileService from "@/services/profileService"
 import ToastComponent from "@/components/common/toast"
 import { useRouter } from "next/navigation"
+import { IMaskInput } from "react-imask"
 
 const UserForm = function() {
   const router = useRouter()
@@ -114,15 +115,17 @@ const UserForm = function() {
           <Label for="phone" className={styles.label}>
             WHATSAPP / TELEGRAM
           </Label>
-          <Input 
+          <IMaskInput
+            mask="(00) 9 0000-0000"
             name="phone"
             type="tel"
             id="phone"
-            placeholder="(xx) 9 xxxx-xxxx"
+            placeholder="(00) 9 0000-0000"
             required
-            className={styles.input}
+            className={`form-control ${styles.input}`}
             value={phone}
-            onChange={(event) => {setPhone(event.target.value)}}
+            onAccept={(value) => setPhone(value as string)}
+            //onChange={(event) => {setPhone(event.target.value)}}
           />
         </FormGroup>
         <FormGroup>

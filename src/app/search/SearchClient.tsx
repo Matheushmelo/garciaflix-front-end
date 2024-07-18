@@ -61,7 +61,7 @@ const Search = function({ setDynamicTitle }: LoginClientProps) {
         ) : (
           <p className={styles.noSearchResult}>Nenhum resultado encontrado</p>
         )}
-      <div className={styles.headerFooterBg}>
+      <div className="fixed-bottom">
         <Footer />
       </div>
       </main>

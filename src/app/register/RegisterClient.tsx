@@ -8,6 +8,7 @@ import { FormEvent, useEffect, useState } from "react";
 import authService from "@/services/authService";
 import { useRouter } from "next/navigation";
 import ToastComponent from "@/components/common/toast";
+import { IMaskInput } from "react-imask";
 
 const Register = function() {
   const router = useRouter()
@@ -96,13 +97,14 @@ const Register = function() {
             </FormGroup>
             <FormGroup>
               <Label for="phone" className={styles.label}>WHATSAPP / TELEGRAM</Label>
-              <Input 
+              <IMaskInput 
+                mask="(00) 9 0000-0000"
                 id="phone" 
                 name="phone" 
                 type="tel"
                 placeholder="(00) 9 0000-0000"
                 required
-                className={styles.input}
+                className={`form-control ${styles.input}`}
               />
             </FormGroup>
             <FormGroup>

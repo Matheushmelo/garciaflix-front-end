@@ -113,7 +113,9 @@ const Login = function() {
             message={toastMessage}
           />
         </Container>
-        <Footer />
+        <div className="fixed-bottom">
+          <Footer />
+        </div>
       </main>
     </>
   )
