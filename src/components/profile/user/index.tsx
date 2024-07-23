@@ -72,7 +72,7 @@ const UserForm = function() {
           <p className={styles.userName}>{`${firstName} ${lastName}`}</p>
         </div>
         <div className={styles.memberTime}>
-          <img src="/profile/iconUserAccount.svg" alt="iconProfile" className={styles.memberTimeImg}/>
+          <img src="/favicon.png" alt="iconProfile" className={styles.memberTimeImg}/>
           <p className={styles.memberText}>Membro desde <br /> {`${date.getDate()} de ${month} de ${date.getFullYear()}`}</p>
         </div>
         <hr />
