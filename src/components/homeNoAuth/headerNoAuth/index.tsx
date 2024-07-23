@@ -6,21 +6,8 @@ import Link from "next/link"
 const HeaderNoAuth = () => {
   return (
     <>
-      <div className={styles.ctaSection}>
-        <img 
-          src="/homeNoAuth/logoCta.png" 
-          alt="logoCta" 
-          className="{styles.imgCta}"
-        />
-        <p>Se cadastre para ter acesso aos cursos</p>
-        <img 
-          src="/homeNoAuth/logoCta.png" 
-          alt="logoCta" 
-          className="{styles.imgCta}"
-        />
-      </div>
       <Container className={styles.nav}>
-        <img src="/logoGarciaflix.png" alt="logoGarciaflix" className={styles.imgLogoNav}/>
+        <img src="/logoGarciaflix.svg" alt="logoGarciaflix" className={styles.imgLogoNav}/>
         <div>
           <Link href="/login">
             <Button className={styles.navBtn} outline>

@@ -1,6 +1,5 @@
 'use client'
 
-import Head from "next/head"
 import styles from "../../../../styles/episodePlayer.module.scss"
 import HeaderGeneric from "@/components/common/headerGeneric"
 import { useRouter, useSearchParams } from "next/navigation"
@@ -121,10 +120,6 @@ const EpisodePlayer = function({params, setDynamicTitle}: Props) {
 
   return (
     <>
-      <Head>
-        <title>Garciaflix - {course.episodes[episodeOrder].name}</title>
-        <link rel="shortcut icon" href="/favicon.png" type="image/x-icon" />
-      </Head>
       <main>
         <HeaderGeneric logoUrl="/home" btnContent={'Voltar para o curso'} btnUrl={`/courses/${courseId}`}/>
         <Container className="d-flex flex-column align-items-center gap-3 pt-5">

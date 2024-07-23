@@ -10,7 +10,7 @@ import AOSinit from "@/components/homeNoAuth/aosInit";
 
 export default async function HomeNoAuth() {
   const courses: CourseType[] = await courseService.getNewestCourses();
-
+  
   return (
     <>
       <Head>
@@ -25,7 +25,7 @@ export default async function HomeNoAuth() {
           <CardsSection />
         </div>
         <div data-aos="fade-up" data-aos-duration="1350">
-          <SlideSection newestCourses={courses}/>
+        <SlideSection newestCourses={courses || []} />
         </div>
         <Footer />
        </main>
